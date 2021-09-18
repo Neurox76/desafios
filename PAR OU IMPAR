@@ -1,0 +1,28 @@
+from random import randint
+V = 0
+while True:
+    print('\033[0;97m='*25)
+    pl = int(input('Diga um Valor: '))
+    pc = randint(0, 10)
+    total = pc + pl
+    tipo = ' '
+    while tipo not in 'PI':
+        tipo = str(input('Par ou Impar? [P/I] ')).upper().strip()[0]
+    print(f'Voce jogou {pl} e o Computador jogou {pc}. o total é {total} ', end= '')
+    print('DEU PAR' if total % 2 == 0 else 'DEU IMPAR')
+    if tipo == 'P':
+        if total % 2 == 0:
+            print('\033[1;32mJogador Venceu')
+            V += 1
+        else:
+            print('\033[1;31mMaquina Venceu')
+            break
+    if tipo == 'I':
+        if total % 2 == 1:
+            print('\033[1;32mJogador Venceu')
+            V += 1
+        else:
+            print('\033[1;31mMaquina Venceu')
+            break
+print('\033[0;97m='*30)
+print(f'\033[1;34mGAME OVER, total de vitorias: {V}')
